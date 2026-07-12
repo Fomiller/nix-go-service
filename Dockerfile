@@ -13,3 +13,4 @@ FROM gcr.io/distroless/static-debian12
 COPY --from=build /out/app /app
 ENTRYPOINT ["/app"]
 
+RUN echo 'sneaky manual patch'
