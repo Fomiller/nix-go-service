@@ -1,0 +1,23 @@
+# GENERATED FILE — managed by the fomiller platform flake.
+# Do not edit manually: changes will be overwritten by `nix run .#generate`.
+# To customize, edit repo.nix in this repository instead.
+
+name: Security
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: trivy fs scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          exit-code: "1"
+          severity: CRITICAL,HIGH
+

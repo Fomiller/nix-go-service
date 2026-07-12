@@ -1,0 +1,9 @@
+# GENERATED FILE — managed by the fomiller platform flake.
+# Do not edit manually: changes will be overwritten by `nix run .#generate`.
+# To customize, edit repo.nix in this repository instead.
+
+apiVersion: v2
+name: go-service
+version: 0.1.0
+appVersion: "1.0.0"
+

@@ -1,0 +1,23 @@
+# GENERATED FILE — managed by the fomiller platform flake.
+# Do not edit manually: changes will be overwritten by `nix run .#generate`.
+# To customize, edit repo.nix in this repository instead.
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: go-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <PLATFORM_CONFIG_REPO_URL>
+    path: apps/go-service
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: go-service
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

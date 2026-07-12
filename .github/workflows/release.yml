@@ -1,0 +1,25 @@
+# GENERATED FILE — managed by the fomiller platform flake.
+# Do not edit manually: changes will be overwritten by `nix run .#generate`.
+# To customize, edit repo.nix in this repository instead.
+
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: build release artifact
+        run: go build ./...
+      - name: publish
+        uses: softprops/action-gh-release@v2
+
+

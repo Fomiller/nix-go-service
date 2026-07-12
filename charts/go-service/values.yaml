@@ -1,0 +1,10 @@
+# GENERATED FILE — managed by the fomiller platform flake.
+# Do not edit manually: changes will be overwritten by `nix run .#generate`.
+# To customize, edit repo.nix in this repository instead.
+
+image:
+  repository: <ECR_REGISTRY>/go-service
+  tag: ""
+
+replicaCount: 1
+
