@@ -11,7 +11,7 @@
     # flake.lock records the exact commit, and `nix flake update platform`
     # is how a Renovate-driven bump would land here.
     platform = {
-      url = "git+file:///Users/forrest/dev/personal/nix-platform-poc/platform?ref=v0.1.0";
+      url = "git+file:///Users/forrest/dev/personal/nix-platform-poc/platform?ref=v0.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
