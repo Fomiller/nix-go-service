@@ -42,12 +42,51 @@
         # this system's pkgs and this repo's declared config, returns
         # { files, filesDrv, generateApp }.
         repo = platform.lib.mkRepository pkgs repoConfig;
+
+        # --- Nix-native container build, kept alongside the platform's
+        # generated Dockerfile rather than replacing it — folding this into
+        # mkRepository would mean the generator needs a real vendorHash/
+        # cargoHash per repo, which (unlike a Dockerfile) can't be derived
+        # from repo.nix alone. Two derivations instead of one Dockerfile
+        # RUN-step build:
+
+        # 1. The Go binary itself, built by Nix instead of `docker build`
+        #    running `go build` in a golang:1.23 container. `vendorHash =
+        #    null` is valid because main.go has zero external dependencies
+        #    (stdlib only) — nothing to vendor. A real service with
+        #    third-party imports would need a real vendorHash here (Nix
+        #    fixes it to make the build hermetic; `nix build` tells you the
+        #    right value the first time if you get it wrong).
+        goServiceBin = pkgs.buildGoModule {
+          pname = "go-service";
+          version = "0.1.0";
+          src = ./.;
+          vendorHash = null;
+        };
       in
       {
         # `nix run .#generate` and bare `nix run` both resolve to the same
         # script: copy platform.filesDrv's contents into the working tree.
         apps.generate = repo.generateApp;
         apps.default = repo.generateApp;
+
+        packages.go-service = goServiceBin;
+
+        # 2. The OCI image. No Dockerfile, no base image, no `apt-get`, no
+        # shell in the final image at all — dockerTools.buildLayeredImage
+        # copies exactly goServiceBin's closure (the binary + its runtime
+        # deps, here just glibc) into content-addressed layers. Two builds
+        # from an unchanged binary produce byte-identical layers, so a
+        # registry push after a docs-only change re-uses every layer.
+        packages.container = pkgs.dockerTools.buildLayeredImage {
+          name = "go-service";
+          tag = "latest";
+          contents = [ goServiceBin ];
+          config = {
+            Cmd = [ "${goServiceBin}/bin/go-service" ];
+            ExposedPorts = { "8080/tcp" = { }; };
+          };
+        };
       }
     );
 }
