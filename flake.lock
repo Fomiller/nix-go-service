@@ -41,16 +41,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1783896289,
-        "narHash": "sha256-8ST5T9j8S4UZVitrvq7Qf2jxuyobKd0hFmchOTI3I9Y=",
-        "ref": "v0.2.0",
-        "rev": "a8ea72498f4d724df8a746ba73d7158fc031abea",
-        "revCount": 3,
+        "lastModified": 1783901589,
+        "narHash": "sha256-MCAJnoaVPGcquiG0S5ABBIhlbU1vPZYkmUeEP0rKXQM=",
+        "ref": "v0.2.2",
+        "rev": "8d72c999ac33fcaf2760d87a22ae4d99b7b7c37f",
+        "revCount": 5,
         "type": "git",
         "url": "file:///Users/forrest/dev/personal/nix-platform-poc/platform"
       },
       "original": {
-        "ref": "v0.2.0",
+        "ref": "v0.2.2",
         "type": "git",
         "url": "file:///Users/forrest/dev/personal/nix-platform-poc/platform"
       }

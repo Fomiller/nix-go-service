@@ -15,13 +15,13 @@
     # thing standing between "this repo" and "whatever the platform team
     # currently considers standard."
     #
-    # In production this would be `github:fomiller/platform?ref=v0.2.0`.
+    # In production this would be `github:fomiller/platform?ref=v0.2.2`.
     # For this local POC (no GitHub push yet) we point at the sibling repo
     # via git+file, which behaves identically for locking/pinning purposes:
     # flake.lock records the exact commit, and `nix flake update platform`
     # is how a Renovate-driven bump would land here.
     platform = {
-      url = "git+file:///Users/forrest/dev/personal/nix-platform-poc/platform?ref=v0.2.0";
+      url = "git+file:///Users/forrest/dev/personal/nix-platform-poc/platform?ref=v0.2.2";
       # Without this, `platform` would drag in its own copy of nixpkgs
       # (a second full nixpkgs eval + a second store of derivations to
       # build). `follows` tells Nix "use *this* flake's nixpkgs input
