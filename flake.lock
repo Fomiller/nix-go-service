@@ -43,16 +43,16 @@
       "locked": {
         "lastModified": 1783901589,
         "narHash": "sha256-MCAJnoaVPGcquiG0S5ABBIhlbU1vPZYkmUeEP0rKXQM=",
-        "ref": "v0.2.2",
+        "owner": "Fomiller",
+        "repo": "nix-platform-flake",
         "rev": "8d72c999ac33fcaf2760d87a22ae4d99b7b7c37f",
-        "revCount": 5,
-        "type": "git",
-        "url": "file:///Users/forrest/dev/personal/nix-platform-poc/platform"
+        "type": "github"
       },
       "original": {
+        "owner": "Fomiller",
         "ref": "v0.2.2",
-        "type": "git",
-        "url": "file:///Users/forrest/dev/personal/nix-platform-poc/platform"
+        "repo": "nix-platform-flake",
+        "type": "github"
       }
     },
     "root": {
