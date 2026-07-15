@@ -41,16 +41,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1784074724,
-        "narHash": "sha256-h5olpIR+iPpz7VasrCgl/TIyfTCddCjlTHI2IcXjHsM=",
+        "dir": "raw-nix",
+        "lastModified": 1784077620,
+        "narHash": "sha256-9bQhxSKp35SfXsyXbv91TQ4MmTHmihiO9CfLz5YvWx4=",
         "owner": "Fomiller",
         "repo": "nix-platform-flake",
-        "rev": "3d23dde149c9a631052448a5c2cb6d187595d8af",
+        "rev": "a603c30168ed0b5c9a24fbbf17659b8172ded42d",
         "type": "github"
       },
       "original": {
+        "dir": "raw-nix",
         "owner": "Fomiller",
-        "ref": "v0.3.1",
+        "ref": "v0.4.0",
         "repo": "nix-platform-flake",
         "type": "github"
       }
