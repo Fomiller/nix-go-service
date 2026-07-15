@@ -2,7 +2,7 @@
 # Do not edit manually: changes will be overwritten by `nix run .#generate`.
 # To customize, edit repo.nix in this repository instead.
 
-FROM golang:1.23 AS build
+FROM golang:1.23-bookworm AS build
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download

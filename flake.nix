@@ -15,7 +15,7 @@
     # thing standing between "this repo" and "whatever the platform team
     # currently considers standard."
     platform = {
-      url = "github:Fomiller/nix-platform-flake?ref=v0.2.2";
+      url = "github:Fomiller/nix-platform-flake?ref=v0.3.1";
       # Without this, `platform` would drag in its own copy of nixpkgs
       # (a second full nixpkgs eval + a second store of derivations to
       # build). `follows` tells Nix "use *this* flake's nixpkgs input
